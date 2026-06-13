@@ -2,7 +2,7 @@ import { spawn } from "node:child_process";
 
 import ffmpegPath from "ffmpeg-static";
 
-export const FFMPEG_PATH = ffmpegPath;
+export const FFMPEG_PATH = process.env.FFMPEG_PATH?.trim() || ffmpegPath;
 
 export function createFfmpegProcess(streamUrl) {
   return spawn(

@@ -1,10 +1,10 @@
 import { mkdir, stat } from "node:fs/promises";
 import path from "node:path";
 
-import ffmpegPath from "ffmpeg-static";
 import youtubeDl from "youtube-dl-exec";
 
 import { asInteger, isHttpUrl } from "../../shared/utils.js";
+import { FFMPEG_PATH } from "../player/ffmpeg.js";
 
 const BASE_FLAGS = Object.freeze({
   ignoreConfig: true,
@@ -101,7 +101,7 @@ export class YouTubeClient {
       extractAudio: true,
       audioFormat: "mp3",
       audioQuality: String(audioQuality),
-      ffmpegLocation: ffmpegPath,
+      ffmpegLocation: FFMPEG_PATH,
       paths: directory,
       output: "%(title).150B-%(id)s.%(ext)s",
       print: "after_move:filepath",

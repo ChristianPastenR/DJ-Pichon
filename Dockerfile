@@ -7,8 +7,11 @@ WORKDIR /app
 RUN apt-get update \
     && apt-get install --yes --no-install-recommends \
         ca-certificates \
+        ffmpeg \
         python3 \
     && rm -rf /var/lib/apt/lists/*
+
+ENV FFMPEG_PATH=/usr/bin/ffmpeg
 
 COPY package.json package-lock.json ./
 RUN npm ci --omit=dev \
