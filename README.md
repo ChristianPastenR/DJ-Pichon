@@ -19,8 +19,12 @@ cola independiente por servidor y controles interactivos.
 ## Requisitos
 
 - Node.js 22.13 o posterior.
+- Python 3.9 o posterior para `yt-dlp` en instalaciones locales.
 - Un bot creado en Discord Developer Portal.
 - Permisos para conectar y hablar en el canal de voz.
+
+La imagen Docker ya instala Python automaticamente. FFmpeg se obtiene mediante
+la dependencia npm `ffmpeg-static`.
 
 ## Configurar Discord
 
@@ -86,6 +90,9 @@ npm start
 ```
 
 ## Iniciar con Docker
+
+No necesitas instalar Node.js, Python ni FFmpeg dentro del servidor. Docker
+incluye los runtimes necesarios en la imagen.
 
 ```powershell
 docker compose up --build -d
